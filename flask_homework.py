@@ -15,7 +15,6 @@ def say_hello_page(name):
 </body>
 </html>
 """.format(name)
-# triple quote marks displays data over multiple lines
 
 @app.route('/about/page')
 def about_page():
@@ -23,7 +22,7 @@ def about_page():
 
 @app.route('/get/text')
 def get_text():
-    return Response("Hello from Flask using an explicit Response object", mimetype='text/plain')
+    return Response("Hello from Flask using an explicit Response object", mimetype='text/html')
 @app.route("/index/<name>/<int:age>")
 def index(name, age):
     url = url_for('get_text')
@@ -32,7 +31,7 @@ def index(name, age):
 
 <html>
 <head>
-    <title style="color:coral ;">Sample - Flask routes</title>
+    <title>Sample - Flask routes</title>
 </head>
 
 <body>
@@ -52,8 +51,9 @@ def index(name, age):
     <a href= "{}">Welcome</a>
 </body>
 </html>
-""".format(name, age, url, image)
-
-
+""".format(name, age, image, url)
+# anchor tag
+# triple quotes
+# mimetype = way of saying in HTML this is the type of document it is
 if __name__ == "__main__":
     app.run(debug=True)
